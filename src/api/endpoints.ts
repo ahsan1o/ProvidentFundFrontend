@@ -1,0 +1,18 @@
+export const API_ENDPOINTS = {
+  AUTH_LOGIN: '/auth/login',
+  AUTH_REFRESH: '/auth/refresh',
+  AUTH_LOGOUT: '/auth/logout',
+  PF_ACCOUNTS: '/pf-accounts',
+  CONTRIBUTIONS_RUN: '/contributions/run',
+  WITHDRAWALS: '/withdrawals',
+  LOANS: '/loans',
+  INTEREST_RUN: '/interest/run',
+  SETTLEMENTS: '/settlements',
+  TAX_CONFIGS: '/tax/configs',
+  PERIODS: '/periods',
+  ADMIN_CONTRIBUTION_CONFIGS: '/admin/contribution-configs',
+  ADMIN_INTEREST_CONFIGS: '/admin/interest-configs',
+  ADMIN_USERS: '/admin/users',
+  ADMIN_ENTITIES: '/admin/entities',
+  REPORTS_LIABILITY: '/reports/total-liability',
+} as const;
