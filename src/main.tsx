@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ConfigProvider theme={themeToken}>
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
+        <BrowserRouter basename="/ProvidentFundFrontend/">
           <AppRouter />
         </BrowserRouter>
       </QueryClientProvider>

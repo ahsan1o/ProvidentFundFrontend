@@ -13,13 +13,18 @@
     <script>
       // Handle redirects from 404.html for GitHub Pages SPA routing
       (function() {
-        var redirect = sessionStorage.redirect;
-        delete sessionStorage.redirect;
-        if (redirect && redirect !== location.href) {
-          history.replaceState(null, null, redirect);
+        var redirect = sessionStorage.getItem('redirect_to');
+        if (redirect) {
+          sessionStorage.removeItem('redirect_to');
+          // Let React Router handle the navigation via basename
+          // The redirect happens by setting the URL correctly
+          if (redirect !== '/') {
+            history.replaceState(null, null, '/ProvidentFundFrontend' + redirect);
+          }
         }
       })();
     </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
+
