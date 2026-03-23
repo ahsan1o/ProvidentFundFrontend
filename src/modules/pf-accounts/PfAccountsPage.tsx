@@ -1,10 +1,11 @@
-import { Drawer, Input, Space, Typography } from 'antd';
+import { Drawer, Input, Space, Typography, Tag, Statistic, Divider } from 'antd';
 import { useMemo, useState } from 'react';
 import { useAccounts } from '../../api/hooks/useAccounts';
 import { AmountDisplay } from '../../components/common/AmountDisplay';
 import { DataTable } from '../../components/common/DataTable';
 import { StatusBadge } from '../../components/common/StatusBadge';
 import { PageHeader } from '../../components/layout/PageHeader';
+import { TutorialCard } from '../../components/common/TutorialCard';
 
 type AccountRow = {
   id: string;
@@ -35,7 +36,21 @@ export function PfAccountsPage(): JSX.Element {
   return (
     <>
       <PageHeader title="PF Accounts" breadcrumb={['PF Accounts']} />
-      <Space style={{ marginBottom: 12 }}>
+      
+      <TutorialCard
+        title="Individual PF Accounts"
+        description="Browse and manage individual employee provident fund accounts."
+        businessContext="Each enrolled employee has a unique PF account that tracks their contributions, interest, loans, and pending requests. Accounts show real-time balance and transaction history."
+        points={[
+          'Search employees by ID or name to find their account',
+          'Click any account to view detailed balance and history',
+          'Account shows gross balance minus any outstanding loans',
+          'Track monthly contribution credits and interest earnings',
+          'View pending withdrawals and loan applications',
+        ]}
+      />
+      
+      <Space style={{ marginBottom: 12, width: '100%' }}>
         <Input.Search
           allowClear
           placeholder="Search by employee ID or name"

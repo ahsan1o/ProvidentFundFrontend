@@ -1,9 +1,16 @@
-import { Button, Card, DatePicker, Form, message } from 'antd';
+import { Button, Card, DatePicker, Form, message, Space, Typography, Table } from 'antd';
 import dayjs from 'dayjs';
 import { useState } from 'react';
 import { useRunContributions } from '../../api/hooks/useContributions';
 import { ConfirmModal } from '../../components/common/ConfirmModal';
 import { PageHeader } from '../../components/layout/PageHeader';
+import { TutorialCard } from '../../components/common/TutorialCard';
+
+const contributionHistory = [
+  { key: '1', period: '2025-12', status: '✓ Completed', employees: 25, totalAmount: 'PKR 2.1M', date: '2025-12-28' },
+  { key: '2', period: '2025-11', status: '✓ Completed', employees: 25, totalAmount: 'PKR 2.05M', date: '2025-11-28' },
+  { key: '3', period: '2025-10', status: '✓ Completed', employees: 25, totalAmount: 'PKR 2.0M', date: '2025-10-28' },
+];
 
 export function ContributionsPage(): JSX.Element {
   const [period, setPeriod] = useState(dayjs().format('YYYY-MM'));
@@ -13,7 +20,21 @@ export function ContributionsPage(): JSX.Element {
   return (
     <>
       <PageHeader title="Contribution Management" breadcrumb={['Contributions']} />
-      <Card>
+      
+      <TutorialCard
+        title="Monthly Contributions"
+        description="Process monthly employee and employer contributions to PF accounts."
+        businessContext="Contributions are typically run on the last day of each month. Both employees and employers contribute fixed percentages (usually 8.33% each) of gross salary to the provident fund."
+        points={[
+          'Select the month/year for the contribution run',
+          'Confirm to trigger automatic posting to all active accounts',
+          'System calculates employee and employer portions automatically',
+          'Interest is also credited based on configured annual rate',
+          'All transactions are logged for audit trail',
+        ]}
+      />
+
+      <Card style={{ marginBottom: 16 }}>
         <Form layout="inline">
           <Form.Item label="Period">
             <DatePicker

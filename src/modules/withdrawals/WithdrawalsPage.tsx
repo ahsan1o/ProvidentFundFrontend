@@ -4,6 +4,7 @@ import { ApprovalActions } from '../../components/common/ApprovalActions';
 import { DataTable } from '../../components/common/DataTable';
 import { StatusBadge } from '../../components/common/StatusBadge';
 import { PageHeader } from '../../components/layout/PageHeader';
+import { TutorialCard } from '../../components/common/TutorialCard';
 
 type WithdrawalRow = {
   id: string;
@@ -19,6 +20,19 @@ export function WithdrawalsPage(): JSX.Element {
   return (
     <>
       <PageHeader title="Withdrawal Requests" breadcrumb={['Withdrawals']} />
+      
+      <TutorialCard
+        title="Withdrawal Requests"
+        description="Manage employee requests to withdraw funds from their provident fund accounts."
+        businessContext="Employees can request withdrawals for emergency medical needs, home purchase down payments, or higher education. Withdrawals require HR manager approval based on company policy."
+        points={[
+          'View all pending withdrawal requests from employees',
+          'Review employee notes explaining reason for withdrawal',
+          'Approve or reject based on policy and account balance',
+          'Tax implications are calculated automatically',
+          'Approved withdrawals are posted within 5 working days',
+        ]}
+      />
       <DataTable<WithdrawalRow>
         loading={isLoading}
         dataSource={(data ?? []) as WithdrawalRow[]}
