@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/ProvidentFundFrontend/assets/index-ZZy_3VRU.js"></script>
+    <script type="module" crossorigin src="/ProvidentFundFrontend/assets/index-D4s0wrA1.js"></script>
     <link rel="stylesheet" crossorigin href="/ProvidentFundFrontend/assets/index-Elfcz7JQ.css">
   </head>
   <body>
@@ -15,12 +15,17 @@
     <script>
       // Handle redirects from 404.html for GitHub Pages SPA routing
       (function() {
-        var redirect = sessionStorage.redirect;
-        delete sessionStorage.redirect;
-        if (redirect && redirect !== location.href) {
-          history.replaceState(null, null, redirect);
+        var redirect = sessionStorage.getItem('redirect_to');
+        if (redirect) {
+          sessionStorage.removeItem('redirect_to');
+          // Let React Router handle the navigation via basename
+          // The redirect happens by setting the URL correctly
+          if (redirect !== '/') {
+            history.replaceState(null, null, '/ProvidentFundFrontend' + redirect);
+          }
         }
       })();
     </script>
   </body>
 </html>
+
