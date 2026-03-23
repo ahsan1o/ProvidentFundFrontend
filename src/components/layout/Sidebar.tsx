@@ -31,7 +31,7 @@ export function Sidebar(): JSX.Element {
 
   return (
     <Layout.Sider width={240} style={{ background: '#0F2544' }}>
-      <div style={{ color: '#A8B8D0', fontWeight: 600, padding: 20 }}>Hashoo PF</div>
+      <div style={{ color: '#A8B8D0', fontWeight: 600, padding: 20 }}>PF Management</div>
       <Menu
         theme="dark"
         style={{ background: '#0F2544' }}

@@ -22,8 +22,8 @@ export function LoginPage(): JSX.Element {
     >
       <Space direction="vertical" style={{ width: '100%', maxWidth: 500 }} size="large">
         <TutorialCard
-          title="Welcome to Hashoo Group Provident Fund Management System"
-          description="This system manages employee provident fund accounts, contributions, withdrawals, and settlements across all Hashoo entities."
+          title="Provident Fund Management System"
+          description="Digital provident fund management platform for employee contributions, withdrawals, loans, and settlements."
           businessContext="A provident fund is a retirement savings scheme where both employees and employers contribute fixed percentages of salary. This platform ensures transparent, accurate record-keeping and compliance."
           points={[
             'Track all employee PF contributions monthly',
@@ -36,10 +36,10 @@ export function LoginPage(): JSX.Element {
 
         <Card style={{ width: '100%' }}>
           <Typography.Title level={4} style={{ marginTop: 0 }}>
-            Hashoo PF Management
+            Provident Fund Management
           </Typography.Title>
           <Typography.Text type="secondary" style={{ fontSize: 12, display: 'block', marginBottom: 16 }}>
-            Demo Credentials: superadmin@hashoo.local / HashooAdmin123!
+            Demo Login: admin / admin123
           </Typography.Text>
 
           <Form
@@ -61,10 +61,10 @@ export function LoginPage(): JSX.Element {
             }}
           >
             <Form.Item label="Email" name="email" rules={[{ required: true, type: 'email' }]}>
-              <Input placeholder="superadmin@hashoo.local" />
+              <Input placeholder="admin@example.com" />
             </Form.Item>
             <Form.Item label="Password" name="password" rules={[{ required: true }]}>
-              <Input.Password placeholder="HashooAdmin123!" />
+              <Input.Password placeholder="admin123" />
             </Form.Item>
             <Button type="primary" htmlType="submit" block>
               Login
