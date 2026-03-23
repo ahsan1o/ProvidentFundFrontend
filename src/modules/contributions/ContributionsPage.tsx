@@ -1,4 +1,4 @@
-import { Button, Card, DatePicker, Form, message, Space, Typography, Table } from 'antd';
+import { Button, Card, DatePicker, Form, message } from 'antd';
 import dayjs from 'dayjs';
 import { useState } from 'react';
 import { useRunContributions } from '../../api/hooks/useContributions';
@@ -62,6 +62,31 @@ export function ContributionsPage(): JSX.Element {
           message.success('Contribution run triggered successfully');
         }}
       />
+
+      <Card title="Recent Contribution Runs" style={{ marginTop: 24 }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+          <thead>
+            <tr style={{ borderBottom: '2px solid #f0f0f0', textAlign: 'left' }}>
+              <th style={{ padding: '8px' }}>Period</th>
+              <th style={{ padding: '8px' }}>Status</th>
+              <th style={{ padding: '8px' }}>Employees</th>
+              <th style={{ padding: '8px' }}>Total Amount</th>
+              <th style={{ padding: '8px' }}>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {contributionHistory.map(row => (
+              <tr key={row.key} style={{ borderBottom: '1px solid #f0f0f0' }}>
+                <td style={{ padding: '8px' }}>{row.period}</td>
+                <td style={{ padding: '8px' }}>{row.status}</td>
+                <td style={{ padding: '8px' }}>{row.employees}</td>
+                <td style={{ padding: '8px' }}>{row.totalAmount}</td>
+                <td style={{ padding: '8px' }}>{row.date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </Card>
     </>
   );
 }

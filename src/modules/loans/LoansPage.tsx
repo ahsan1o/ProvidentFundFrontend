@@ -1,4 +1,4 @@
-import { Card, Form, Input, InputNumber, Button, message, Space, Typography } from 'antd';
+import { Card, Form, Input, InputNumber, Button, message } from 'antd';
 import { useCreateLoan } from '../../api/hooks/useLoans';
 import { PageHeader } from '../../components/layout/PageHeader';
 import { TutorialCard } from '../../components/common/TutorialCard';
